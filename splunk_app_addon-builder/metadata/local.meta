@@ -1,0 +1,32 @@
+[app/install/install_source_checksum]
+version = 8.0.1
+modtime = 1581082942.649800000
+
+[collections/ta_builder_meta_collection]
+owner = splunk-system-user
+version = 8.0.1
+modtime = 1581082949.978508000
+
+[collections/splunk_app_addon-builder]
+owner = splunk-system-user
+version = 8.0.1
+modtime = 1581082950.294092000
+
+[collections/ta_builder_event_collection]
+owner = splunk-system-user
+version = 8.0.1
+modtime = 1581082950.594082000
+
+[collections/_tab_internal_monitor_inputs_]
+owner = splunk-system-user
+version = 8.0.1
+modtime = 1581082953.792628000
+
+[ui-metrics-collector/collector]
+version = 8.0.1
+modtime = 1581083011.537140000
+
+[collections/TA-maskdata]
+owner = admin
+version = 8.0.1
+modtime = 1581083042.939449000

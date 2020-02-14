@@ -1,0 +1,79 @@
+<div id="predictCommandOptionsModal" class="modal hide fade form-horizontal" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="predictCommandOptionsModal" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="myModalLabel"></h3>
+    </div>
+    <div class="modal-body" id="options">
+        <div id="span" class="control-group">
+            <label class="control-label" for="spanField" id="spanFieldLabel"></label>
+            <div class="controls">
+                <input id="spanField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="spanFieldHelp"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="algorithmField" id="algorithmFieldLabel"></label>
+            <div class="controls">
+                <select id="algorithmField" name="algorithm"></select>
+            </div>
+        </div>
+        <div id="correlate" class="control-group">
+            <label class="control-label" for="correlateField" id="correlateFieldLabel"></label>
+            <div class="controls">
+                <select id="correlateField" name="correlate">
+                    <option value="unknown">Unknown</option>
+                </select>
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="correlateFieldHelp"></span>
+            </div>
+        </div>
+        <div id="futureTimespan" class="control-group">
+            <label class="control-label" for="futureTimespanField" id="futureTimespanFieldLabel"></label>
+            <div class="controls">
+                <input id="futureTimespanField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="futureTimespanFieldHelp"></span>
+            </div>
+        </div>
+        <div id="holdback" class="control-group">
+            <label class="control-label" for="holdbackField" id="holdbackFieldLabel"></label>
+            <div class="controls">
+                <input id="holdbackField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="holdbackFieldHelp"></span>
+            </div>
+        </div>
+        <div id="lower" class="control-group">
+            <label class="control-label" for="lowerField" id="lowerFieldLabel"></label>
+            <div class="controls">
+                <input id="lowerField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="lowerFieldHelp"></span>
+            </div>
+        </div>
+        <div id="upper" class="control-group">
+            <label class="control-label" for="upperField" id="upperFieldLabel"></label>
+            <div class="controls">
+                <input id="upperField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="upperFieldHelp"></span>
+            </div>
+        </div>
+        <div id="period" class="control-group">
+            <label class="control-label" for="periodField" id="periodFieldLabel"></label>
+            <div class="controls">
+                <input id="periodField" class="input-large" type="text" />
+                <span class="hide help-inline"></span>
+                <span class="help-block" id="periodFieldHelp"></span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="pull-left" style="margin-top: 6px;">
+            <a target="_blank" href="http://docs.splunk.com/Documentation/Splunk/latest/SearchReference/Predict" id="predictHelpLink"></a>
+        </div>
+        <button id="setPredictOptions" class="btn"></button>
+    </div>
+</div>
+<a href="#" id="predictOptionsDialog"></a>

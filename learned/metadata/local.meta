@@ -1,0 +1,49 @@
+[props/dfm_stdout-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581081915.127640000
+
+[props/first_install-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581081915.351123000
+
+[props/dfm_stderr-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581081915.565372000
+
+[props/export_metrics-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581081924.852958000
+
+[props/splunk_instrumentation-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581082066.972974000
+
+[props/metric_collector-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581082943.611182000
+
+[props/splunk_archiver-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581085021.446286000
+
+[props/python_modular_input-too_small]
+owner = nobody
+version = 8.0.1
+modtime = 1581613974.028996000
+
+[props/metric_collector-2]
+owner = nobody
+version = 8.0.1
+modtime = 1581613975.687513000
+
+[sourcetypes/%2Fopt%2Fsplunk%2Fvar%2Flog%2Fsplunk%2Fmetric_collector.log_Thu_Feb_13_17%3A12%3A55_2020_1606437495]
+owner = nobody
+version = 8.0.1
+modtime = 1581613976.070486000

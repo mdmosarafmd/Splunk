@@ -1,0 +1,77 @@
+<form script="predictive_analytics.js" stylesheet="predictive_analytics.css">
+    <label>Predictive Analytics</label>
+    <fieldset autoRun="false" submitButton="true">
+        <input type="dropdown" token="dm">
+            <label>Data Model</label>
+            <search>
+                <earliest>-1s</earliest>
+                <latest>now</latest>
+                <query>| datamodelsimple | sort + datamodel</query>
+            </search>
+            <fieldForValue>datamodel</fieldForValue>
+            <fieldForLabel>datamodel</fieldForLabel>
+        </input>
+        <input type="dropdown" token="object">
+            <label>Object</label>
+            <search>
+                <earliest>-1s</earliest>
+                <latest>now</latest>
+                <query>| datamodelsimple type=objects datamodel=$dm$ | sort + object</query>
+            </search>
+            <fieldForValue>lineage</fieldForValue>
+            <fieldForLabel>object</fieldForLabel>
+        </input>
+        <input type="dropdown" token="function">
+            <label>Function</label>
+            <choice value="avg">avg</choice>
+            <choice value="count">count</choice>
+            <choice value="dc">dc</choice>
+            <choice value="min">min</choice>
+            <choice value="median">median</choice>
+            <choice value="max">max</choice>
+            <choice value="stdev">stdev</choice>
+            <choice value="sum">sum</choice>
+            <default>count</default>
+        </input>
+        <input type="dropdown" token="attribute">
+            <label>Attribute</label>
+            <choice value="*">None</choice>
+            <search>
+                <earliest>-1s</earliest>
+                <latest>now</latest>
+                <query>| datamodelsimple type=attributes datamodel=$dm$ nodename=$object$ | search attribute!="_*" | sort + attribute</query>
+            </search>
+            <fieldForValue>lineage</fieldForValue>
+            <fieldForLabel>attribute</fieldForLabel>
+            <default>*</default>
+        </input>
+        <input type="time">
+            <default>Last 24 hours</default>
+        </input>
+        <html id="predictoptions" src="predictoptionsdialog.html"/>
+        <html id="correlationsearchoptions" src="correlationsearchdialog.html"/>
+    </fieldset>
+    <row>
+        <chart id="element1">
+            <title>Prediction Over Time</title>
+            <search>
+                <query>| tstats prestats=true summariesonly=false $aggregate$ from datamodel=$dm$ where nodename="$object$" by _time span=$span$ | timechart span=$span$ $aggregate$ | predict lower$lower$=lower upper$upper$=upper $predict_options$ $aggregate$ as predict</query>
+            </search>
+            <option name="charting.axisTitleX.text">time</option>
+            <option name="charting.chart">line</option>
+            <option name="charting.drilldown">none</option>
+            <option name="charting.legend.placement">bottom</option>
+        </chart>
+    </row>
+    <row>
+        <table id="table1">
+            <title>Outliers</title>
+            <search>
+                <query>| tstats prestats=true summariesonly=false $aggregate$ from datamodel=$dm$ where nodename="$object$" by _time span=$span$ | timechart span=$span$ $aggregate$ | predict lower$lower$=lower upper$upper$=upper $predict_options$ $aggregate$ as predict | rename "lower(predict)" as lower, "upper(predict)" as upper | eval "$aggregate$"=case('$aggregate$'&lt;'lower',"##icon-arrow-down##".'$aggregate$','$aggregate$'&gt;'upper',"##icon-arrow-up##".'$aggregate$',1=1,'$aggregate$') | where '$aggregate$' LIKE "##icon%" | eval "lower$lower$(predict)"=round('lower',2) | eval predict=round(predict,2) | eval "upper$upper$(predict)"=round('upper',2) | table _time,$aggregate$,lower$lower$(predict),predict,upper$upper$(predict)</query>
+            </search>
+            <option name="rowNumbers">false</option>
+            <option name="drilldown">none</option>
+        </table>
+    </row>
+</form>
+

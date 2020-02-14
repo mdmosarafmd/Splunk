@@ -1,0 +1,51 @@
+<div id="createCorrelationSearchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="createCorrelationSearch" aria-hidden="true">
+	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="createCorrelationSearchModalTitle"></h3>
+    </div>
+    <div class="modal-body">
+        <div id="editor">
+            <label for="domainField" id="domainFieldLabel"></label>
+            <select id="domainField" name="domain"></select>
+
+            <label for="severityField" id="severityFieldLabel"></label>
+	        <select id="severityField" name="severity"></select>
+
+            <div id="correlationSearchNameGroup" class="control-group">
+                <label for="nameField" id="nameFieldLabel"></label>
+                <input id="nameField" class="input-xlarge" type="text" />
+            </div>
+
+            <div id="correlationSearchDescriptionGroup" class="control-group">
+                <label for="descriptionField" id="descriptionFieldLabel"></label>
+                <input id="descriptionField" class="input-xlarge" type="text" />
+            </div>
+
+            <input id="searchField" type="hidden" name="search" />
+            <input id="earliestField" type="hidden" name="earliest" />
+            <input id="latestField" type="hidden" name="latest" />
+        </div>
+
+        <span id="successMessage"></span>
+    </div>
+    <div class="modal-footer">
+        <div class="loading pull-left"></div>
+        <button class="btn" data-dismiss="modal" aria-hidden="true" id="createCorrelationSearchModalCloseButton"></button>
+        <button id="makeCorrelationSearch" class="btn btn-primary"></button>
+    </div>
+</div>
+
+<div id="runSearchFirstModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="runSearchFirst" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="runSearchFirstModalTitle"></h3>
+    </div>
+    <div class="modal-body" id="runSearchFirstModalBody"></div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true" id="runSearchFirstModalCloseButton"></button>
+    </div>
+</div>
+
+<div class="input form-submit splunk-view" style="margin-right: 0;">
+    <button id="openCorrelationSearchDialog" class="btn hide"></button>
+</div>
